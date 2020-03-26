@@ -76,15 +76,15 @@ def ml_loop():
                     while pre_ball_y<400:
                             pre_ball_x -= dir_x
                             pre_ball_y -= dir_y
-
+                    '''
                     if pre_ball_x >= 200:
                         pre_ball_x = 400 - pre_ball_x
                         dir_x= 0 - dir_x
                     elif pre_ball_x <= 0:
                         pre_ball_x = 0 - pre_ball_x
                         dir_x= 0 - dir_x
-
                     '''
+                    
                         if pre_ball_x >= 200:
                             if pre_ball_x >=600:
                                 pre_ball_x -= 400
@@ -97,9 +97,9 @@ def ml_loop():
                             else:
                                 pre_ball_x = 0 - pre_ball_x
                                 dir_x= 0 - dir_x
-                    '''
                     
-                    '''
+                    
+                    
                      while pre_ball_y<400:
                         if pre_ball_x > 0 and pre_ball_x < 200 :
                             pre_ball_x -= dir_x
@@ -115,7 +115,7 @@ def ml_loop():
                                 #pre_ball_x += dir_x
                                 pre_ball_y -= dir_y
                                 dir_x = 0 - dir_x
-                    '''
+                    
                     if pre_ball_x > platform_x:
                         comm.send_instruction(scene_info.frame, PlatformAction.MOVE_RIGHT)
                     elif pre_ball_x < platform_x:
