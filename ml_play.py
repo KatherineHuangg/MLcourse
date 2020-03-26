@@ -115,14 +115,14 @@ def ml_loop():
                                 #pre_ball_x += dir_x
                                 pre_ball_y -= dir_y
                                 dir_x = 0 - dir_x
-                    
+                    '''
                     if pre_ball_x > platform_x:
                         comm.send_instruction(scene_info.frame, PlatformAction.MOVE_RIGHT)
                     elif pre_ball_x < platform_x:
                         comm.send_instruction(scene_info.frame, PlatformAction.MOVE_LEFT)
                     else:
                         comm.send_instruction(scene_info.frame, PlatformAction.NONE)
-                    '''
+                    
             else :#球往上不預測
                 if platform_x < 100:
                     comm.send_instruction(scene_info.frame, PlatformAction.MOVE_RIGHT)
