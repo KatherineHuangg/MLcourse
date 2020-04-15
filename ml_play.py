@@ -72,19 +72,44 @@ def ml_loop():
             pre_ball_x=ball_x
             pre_ball_y=ball_y
             if dir_y < 0:##球向下才要預測
-                if ball_y > 115:#開始預測
+                if ball_y>390:
+                    if dir_x<0:
+                        comm.send_instruction(scene_info.frame, PlatformAction.MOVE_RIGHT)
+                    elif dir_x>0:
+                        comm.send_instruction(scene_info.frame, PlatformAction.MOVE_LEFT)
+                    else:
+                        comm.send_instruction(scene_info.frame, PlatformAction.NONE)
+                elif ball_y > 125:#開始預測
                     while pre_ball_y<400:
                             pre_ball_x -= dir_x
                             pre_ball_y -= dir_y
-                    
+
                     if pre_ball_x >= 200:
                         pre_ball_x = 400 - pre_ball_x
                         dir_x= 0 - dir_x
                     elif pre_ball_x <= 0:
                         pre_ball_x = 0 - pre_ball_x
                         dir_x= 0 - dir_x
+
                     
-                        ''' 
+                    if pre_ball_x > platform_x:
+                        comm.send_instruction(scene_info.frame, PlatformAction.MOVE_RIGHT)
+                    elif pre_ball_x < platform_x:
+                        comm.send_instruction(scene_info.frame, PlatformAction.MOVE_LEFT)
+                    else:
+                        comm.send_instruction(scene_info.frame, PlatformAction.NONE)
+
+            else :#球往上不預測
+                if platform_x < 100:
+                    comm.send_instruction(scene_info.frame, PlatformAction.MOVE_RIGHT)
+                elif platform_x >100:
+                    comm.send_instruction(scene_info.frame, PlatformAction.MOVE_LEFT)
+                else:
+                    comm.send_instruction(scene_info.frame, PlatformAction.NONE)
+
+
+
+                    '''
                         if pre_ball_x >= 200:
                             if pre_ball_x >=600:
                                 pre_ball_x -= 400
@@ -97,9 +122,9 @@ def ml_loop():
                             else:
                                 pre_ball_x = 0 - pre_ball_x
                                 dir_x= 0 - dir_x
+                    '''
                     
-                    
-                    
+                    '''
                      while pre_ball_y<400:
                         if pre_ball_x > 0 and pre_ball_x < 200 :
                             pre_ball_x -= dir_x
@@ -116,23 +141,5 @@ def ml_loop():
                                 pre_ball_y -= dir_y
                                 dir_x = 0 - dir_x
                     '''
-                    if pre_ball_x > platform_x:
-                        comm.send_instruction(scene_info.frame, PlatformAction.MOVE_RIGHT)
-                    elif pre_ball_x < platform_x:
-                        comm.send_instruction(scene_info.frame, PlatformAction.MOVE_LEFT)
-                    else:
-                        comm.send_instruction(scene_info.frame, PlatformAction.NONE)
-                    
-            else :#球往上不預測
-                if platform_x < 100:
-                    comm.send_instruction(scene_info.frame, PlatformAction.MOVE_RIGHT)
-                elif platform_x >100:
-                    comm.send_instruction(scene_info.frame, PlatformAction.MOVE_LEFT)
-                else:
-                    comm.send_instruction(scene_info.frame, PlatformAction.NONE)
-
-
-
-                
             
 
