@@ -72,7 +72,7 @@ def ml_loop():
             pre_ball_x=ball_x
             pre_ball_y=ball_y
             if dir_y < 0:##球向下才要預測
-                if ball_y>395:
+                if ball_y>392:
                     if dir_x<0:
                         comm.send_instruction(scene_info.frame, PlatformAction.MOVE_RIGHT)
                     elif dir_x>0:
