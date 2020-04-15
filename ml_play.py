@@ -79,7 +79,7 @@ def ml_loop():
                         comm.send_instruction(scene_info.frame, PlatformAction.MOVE_LEFT)
                     else:
                         comm.send_instruction(scene_info.frame, PlatformAction.NONE)
-                elif ball_y > 125:#開始預測
+                elif ball_y > 115:#開始預測
                     while pre_ball_y<400:
                             pre_ball_x -= dir_x
                             pre_ball_y -= dir_y
