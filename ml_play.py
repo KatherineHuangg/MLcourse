@@ -67,12 +67,12 @@ def ml_loop():
             '''
             ball_x = scene_info.ball[0] ##目前(x,y)
             ball_y = scene_info.ball[1]
-            platform_x = scene_info.platform[0] + 15
+            platform_x = scene_info.platform[0] + 20
 
             pre_ball_x=ball_x
             pre_ball_y=ball_y
             if dir_y < 0:##球向下才要預測
-                if ball_y > 125:#開始預測
+                if ball_y > 115:#開始預測
                     while pre_ball_y<400:
                             pre_ball_x -= dir_x
                             pre_ball_y -= dir_y
