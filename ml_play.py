@@ -67,7 +67,7 @@ def ml_loop():
             '''
             ball_x = scene_info.ball[0] ##目前(x,y)
             ball_y = scene_info.ball[1]
-            platform_x = scene_info.platform[0] + 20
+            platform_x = scene_info.platform[0] + 15
 
             pre_ball_x=ball_x
             pre_ball_y=ball_y
